@@ -6,11 +6,15 @@ import NavBar from './components/NavBar'
 
 class App extends Component {
 
+  state = {
+    loggedIn: false,
+  }
+
   render() {
     return (
       <Router>
         <div>
-          <NavBar />
+          <NavBar loggedIn = {this.state.loggedIn} />
           <Route exact path = "/" component = {Home} />
           <Route path = "/other" render = {() => {return <div>sup bruh</div>}} />
         </div>
