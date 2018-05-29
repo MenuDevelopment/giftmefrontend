@@ -39,6 +39,7 @@ const GiftListItem = (props) => {
       <div>
         {pledgeLister(props.pledges)}
       </div>
+      
     </div>
   )
 
