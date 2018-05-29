@@ -1,12 +1,24 @@
 import React from 'react'
 
 const NavBar = (props) => {
-
+  const SignOutButton = () => {
+    return (
+      <button onClick = {props.logOutClicked} >Log Out</button>
+    )
+  }
+  const LogInAndSignUp = () => {
+    return (
+      <div>
+        <button onClick={props.logInClicked}>Log In</button>
+        <button onClick={props.signUpClicked}>Sign Up</button>
+      </div>
+    )
+  }
   return (
     <div class = "App-header">
       <h1>Gift.Me: Sending awesome gifts, together.</h1>
       <div className = "ButtonHolder" >
-        {props.loggedIn ? <button>Sign Out</button> : <button>Log In</button> }
+        {props.loggedIn ? SignOutButton() : LogInAndSignUp() }
       </div>
     </div>
   )
