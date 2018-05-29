@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './components/Home.js'
 import NavBar from './components/NavBar'
 import SignUpForm from './components/SignUpForm'
+import LogInForm from './components/LogInForm'
 
 class App extends Component {
 
@@ -30,7 +31,7 @@ class App extends Component {
         <main>
           <Route exact path = "/" component = {Home} />
           <Route path = "/signup" component = {SignUpForm} />
-          <Route path = "/login" render = {<div>TO BE IMPLEMENTED</div>} /> 
+          <Route path = "/login" component = {LogInForm} />
         </main>
         </div>
       </Router>
