@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const NavBar = (props) => {
   const SignOutButton = () => {
@@ -9,14 +10,20 @@ const NavBar = (props) => {
   const LogInAndSignUp = () => {
     return (
       <div>
-        <button onClick={props.logInClicked}>Log In</button>
-        <button onClick={props.signUpClicked}>Sign Up</button>
-      </div>
+        <Link to="/login">
+          <button>Log In</button>
+        </Link>
+        <Link to="/signup">
+          <button>Sign Up</button>
+        </Link>
+    </div>
     )
   }
   return (
     <div className = "NavBar">
-      <h1>Gift.Me: Sending awesome gifts, together.</h1>
+      <Link to="/" style={{ textDecoration: 'none' }}>
+        <h1>Gift.Me: Sending awesome gifts, together.</h1>
+      </Link>
       <div className = "ButtonHolder" >
         {props.loggedIn ? SignOutButton() : LogInAndSignUp() }
       </div>

@@ -9,26 +9,11 @@ class App extends Component {
 
   state = {
     loggedIn: false,
-    showSignUp: false,
-    showLogIn: false,
   }
 
   logOutClicked = (event) => {
     this.setState({
       loggedIn: false
-    })
-  }
-
-  logInClicked = (event) => {
-    this.setState({
-      loggedIn: true,
-      showLogIn: true
-    })
-  }
-
-  signUpClicked = (event) => {
-    this.setState({
-      showSignUp: true
     })
   }
 
@@ -39,14 +24,13 @@ class App extends Component {
         <header>
           <NavBar
             loggedIn = {this.state.loggedIn}
-            signUpClicked = {this.signUpClicked}
             logOutClicked = {this.logOutClicked}
-            logInClicked = {this.logInClicked}
           />
         </header>
         <main>
           <Route exact path = "/" component = {Home} />
           <Route path = "/signup" component = {SignUpForm} />
+          <Route path = "/login" render = {<div>TO BE IMPLEMENTED</div>} /> 
         </main>
         </div>
       </Router>
