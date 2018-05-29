@@ -25,7 +25,7 @@ const NavBar = (props) => {
         <h1>Gift.Me: Sending awesome gifts, together.</h1>
       </Link>
       <div className = "ButtonHolder" >
-        {props.loggedIn ? SignOutButton() : LogInAndSignUp() }
+        {localStorage.getItem("token") ? SignOutButton() : LogInAndSignUp() }
       </div>
     </div>
   )

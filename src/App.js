@@ -8,14 +8,9 @@ import LogInForm from './components/LogInForm'
 
 class App extends Component {
 
-  state = {
-    loggedIn: false,
-  }
 
   logOutClicked = (event) => {
-    this.setState({
-      loggedIn: false
-    })
+    localStorage.clear()
   }
 
   render() {
@@ -24,7 +19,6 @@ class App extends Component {
         <div>
         <header>
           <NavBar
-            loggedIn = {this.state.loggedIn}
             logOutClicked = {this.logOutClicked}
           />
         </header>

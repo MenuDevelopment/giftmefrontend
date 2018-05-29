@@ -19,10 +19,10 @@ class LogInForm extends React.Component {
     })
     .then(res=> res.json())
     .then((res) => {
-      console.log(res)
       localStorage.setItem('token', res.token)
       localStorage.setItem('username', res.username)
       localStorage.setItem('id', res.user_id)
+      this.props.history.push('/')
       //this returns a token
       //anywhere that needs auth, include in header authroization: token
     })

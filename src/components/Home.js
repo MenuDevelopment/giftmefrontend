@@ -8,11 +8,19 @@ class Home extends React.Component {
   }
 
   componentDidMount () {
-    fetch('http://localhost:3001/api/v1/gifts/')
-    .then(res => res.json())
-    .then( res => {
-      this.setState ({ gifts: res})
-    })
+    if (localStorage.getItem("token")){
+      fetch('http://localhost:3001/api/v1/gifts/',{
+        headers: {
+          authorization: localStorage.token
+        }
+      })
+      .then(res => res.json())
+      .then( res => {
+        this.setState ({ gifts: res})
+      })
+    } else {
+      this.props.history.push("/login")
+    }
   }
 
   render () {
