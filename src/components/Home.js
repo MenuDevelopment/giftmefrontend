@@ -25,7 +25,9 @@ class Home extends React.Component {
          />)
     })
     return (
-      <div> {giftComps} </div>
+      <div className = "GiftList"> 
+        {giftComps}
+      </div>
     )
   }
 }

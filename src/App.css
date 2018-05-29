@@ -27,9 +27,18 @@
   to { transform: rotate(360deg); }
 }
 
-.GiftListItem {
+.GiftList {
+  display: flex;
+     align-items: center;
+     justify-content: left;
+     flex-flow: row wrap;
+     align-content: flex-start;
+}
+
+.GiftListItem{
+  background-color: lightgray;
   margin: 10px;
-  height: 5%;
-  width: 25%;
-  background-color: whitesmoke;
+  padding: 10px;
+  width: 300px;
+  height: 300px;
 }
