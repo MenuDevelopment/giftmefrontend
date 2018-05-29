@@ -13,14 +13,12 @@ class App extends Component {
   }
 
   logOutClicked = (event) => {
-    console.log(event);
     this.setState({
       loggedIn: false
     })
   }
 
   logInClicked = (event) => {
-    console.log(event);
     this.setState({
       loggedIn: true,
       showLogIn: true
@@ -28,7 +26,6 @@ class App extends Component {
   }
 
   signUpClicked = (event) => {
-    console.log(event);
     this.setState({
       showSignUp: true
     })

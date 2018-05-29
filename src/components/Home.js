@@ -16,7 +16,6 @@ class Home extends React.Component {
   }
 
   render () {
-    console.log("RENDERING BOI");
     const giftComps = this.state.gifts.map((gift)=> {
       return ( <GiftListItem
         name = {gift.item}
@@ -25,7 +24,7 @@ class Home extends React.Component {
          />)
     })
     return (
-      <div className = "GiftList"> 
+      <div className = "GiftList">
         {giftComps}
       </div>
     )
