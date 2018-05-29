@@ -15,7 +15,7 @@ const NavBar = (props) => {
     )
   }
   return (
-    <div class = "App-header">
+    <div className = "NavBar">
       <h1>Gift.Me: Sending awesome gifts, together.</h1>
       <div className = "ButtonHolder" >
         {props.loggedIn ? SignOutButton() : LogInAndSignUp() }

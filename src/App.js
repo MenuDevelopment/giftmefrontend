@@ -36,14 +36,18 @@ class App extends Component {
     return (
       <Router>
         <div>
+        <header>
           <NavBar
             loggedIn = {this.state.loggedIn}
             signUpClicked = {this.signUpClicked}
             logOutClicked = {this.logOutClicked}
             logInClicked = {this.logInClicked}
           />
+        </header>
+        <main>
           <Route exact path = "/" component = {Home} />
           <Route path = "/signup" component = {SignUpForm} />
+        </main>
         </div>
       </Router>
     );
