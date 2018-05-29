@@ -5,22 +5,24 @@ class SignUpForm extends React.Component {
     usernameText : '',
     emailText : '',
     paymentText : '',
+    passwordText : '',
   }
 
   signUpSubmitted =  (event) => {
     event.preventDefault()
-    fetch(`http://localhost:3001/api/v1/users`,
+    fetch(`http://localhost:3001/api/v1/users/`,
     {
       headers: {'Content-Type': 'application/json'},
       method: "POST",
       body: JSON.stringify({
         username: this.state.usernameText,
         email: this.state.emailText,
-        payment: this.state.paymentText
+        payment: this.state.paymentText,
+        password: this.state.passwordText
       })
-      .then(res => res.json())
-      .then(console.log)
     })
+    .then(res=> res.json())
+    .then(console.log)
   }
 
   handleTextChange = (event) => {
@@ -47,6 +49,13 @@ class SignUpForm extends React.Component {
             onChange={this.handleTextChange}
             name="emailText"
             value={this.state.emailText}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={this.handleTextChange}
+            name="passwordText"
+            value={this.state.passwordText}
           />
           <input
             type="text"
