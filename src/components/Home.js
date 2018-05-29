@@ -17,11 +17,13 @@ class Home extends React.Component {
 
   render () {
     const giftComps = this.state.gifts.map((gift)=> {
-      return ( <GiftListItem
+      return (
+        <GiftListItem
         name = {gift.item}
         pledges = {gift.pledges}
         price = {gift.price}
-         />)
+         />
+     )
     })
     return (
       <div className = "GiftList">
