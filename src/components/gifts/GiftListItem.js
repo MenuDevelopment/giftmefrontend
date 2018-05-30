@@ -7,7 +7,7 @@ const GiftListItem = (props) => {
   const pledgeLister = (pledges) => {
     if (pledges) {
       return pledges.map((pledge) => {
-        return <PledgeListItem username = {pledge.user.name} amount = {pledge.amount} id = {pledge.user.id} />
+        return <PledgeListItem username = {pledge.user.name} amount = {pledge.amount}/>
       })
     } else {
       return null

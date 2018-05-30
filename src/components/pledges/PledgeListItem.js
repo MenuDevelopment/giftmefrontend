@@ -3,7 +3,7 @@ import React from 'react'
 const PledgeListItem = (props) => {
   return (
     <li>
-      {props.username} : {props.amount} : {props.id}
+      {props.username} : {props.amount}
     </li>
   )
 }
