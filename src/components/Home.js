@@ -1,6 +1,6 @@
 import React from 'react'
 import GiftListItem from './gifts/GiftListItem'
-import { Divider, Segment } from 'semantic-ui-react'
+import { Divider } from 'semantic-ui-react'
 
 class Home extends React.Component {
 
@@ -27,6 +27,7 @@ class Home extends React.Component {
   render () {
     console.log(this.state);
     const giftComps = this.state.gifts.map((gift)=> {
+      let index = this.state.gifts.indexOf(gift)
       return (
         <div>
           <GiftListItem
@@ -39,7 +40,7 @@ class Home extends React.Component {
      )
     })
     return (
-      <div className = "GiftList">
+      <div>
         {localStorage.token ? giftComps : null}
       </div>
     )

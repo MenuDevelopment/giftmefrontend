@@ -5,6 +5,7 @@ import Home from './components/Home.js'
 import NavBar from './components/NavBar'
 import SignUpForm from './components/SignUpForm'
 import LogInForm from './components/LogInForm'
+import { Segment } from 'semantic-ui-react'
 
 class App extends Component {
   state = {
@@ -29,9 +30,11 @@ class App extends Component {
           />
         </header>
         <main>
-          <Route exact path = "/" component = {Home} />
-          <Route path = "/signup" component = {SignUpForm} />
-          <Route path = "/login" component = {LogInForm} />
+          <Segment textAlign='center'>
+            <Route exact path = "/" component = {Home} />
+            <Route path = "/signup" component = {SignUpForm} />
+            <Route path = "/login" component = {LogInForm} />
+          </Segment>
         </main>
         </div>
       </Router>

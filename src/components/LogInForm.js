@@ -51,7 +51,7 @@ class LogInForm extends React.Component {
             name="passwordText"
             value={this.state.passwordText}
           />
-          <input type="submit" />
+        <input type="submit" value="Log In"/>
         </form>
       </div>
     )

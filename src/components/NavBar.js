@@ -21,7 +21,7 @@ const NavBar = (props) => {
     )
   }
   return (
-    <Segment inverted>
+    <Segment inverted textAlign='center'>
       <Link to="/" style={{ textDecoration: 'none' }}>
         <Header as='h1' inverted color='white' textAlign='center'>Gift.Me: Sending awesome gifts, together.</Header>
       </Link>
