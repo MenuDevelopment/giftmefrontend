@@ -34,19 +34,10 @@ const GiftListItem = (props) => {
   return (
     <div className = "GiftListItem" >
       <Card>
-<<<<<<< Updated upstream
-        <h3> {props.name} </h3>
-        <h4> Goal: {props.price} </h4>
-        {progressBar(props.price, props.pledges)}
-        <div>
-          <h4> Contributors: </h4>
-=======
         <Card.Header> {props.name} </Card.Header>
         <Card.Meta> Goal: {props.price} </Card.Meta>
-        <Button content ="sup yall" />
         <h4> {progressBar(props.price, props.pledges)} </h4>
         <Card.Description>
->>>>>>> Stashed changes
           {pledgeLister(props.pledges)}
         </Card.Description>
       </Card>
