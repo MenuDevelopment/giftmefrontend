@@ -12,7 +12,6 @@ const GiftFullView = (props) => {
         props.progressBar(props.gift.price, props.gift.pledges) :
         <h2>No one has contributed towards this great gift, be the first one!</h2>
       }
-      {localStorage.id}
       {yourPledge ?
          <h3>You've pledged to this campaign!</h3> :
          <Button onClick= {()=>{props.pledgeADollar(props.gift)}}>Pledge a dollar!</Button>
