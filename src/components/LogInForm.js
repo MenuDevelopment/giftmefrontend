@@ -37,7 +37,7 @@ class LogInForm extends React.Component {
   render () {
     return (
       <div>
-        <Form onSubmit = {this.logInSubmitted}>
+        <form onSubmit = {this.logInSubmitted}>
           <input
             type="text"
             placeholder="Username"
