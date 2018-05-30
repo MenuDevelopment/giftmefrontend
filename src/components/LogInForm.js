@@ -20,10 +20,16 @@ class LogInForm extends React.Component {
     })
     .then(res=> res.json())
     .then((res) => {
-      localStorage.setItem('token', res.token)
-      localStorage.setItem('username', res.username)
-      localStorage.setItem('id', res.user_id)
-      this.props.history.push('/')
+      if (res.token) {
+        localStorage.setItem('token', res.token)
+        localStorage.setItem('username', res.username)
+        localStorage.setItem('id', res.user_id)
+        this.props.history.push('/')
+      }
+      this.setState({
+        usernameText : '',
+        passwordText : ''
+      })
       //this returns a token
       //anywhere that needs auth, include in header authroization: token
     })
@@ -37,23 +43,22 @@ class LogInForm extends React.Component {
   render () {
     return (
       <div>
-        <form onSubmit = {this.logInSubmitted}>
-          <input
-            type="text"
+        <Form onSubmit = {this.logInSubmitted}>
+          <Form.Input fluid
             placeholder="Username"
             onChange={this.handleTextChange}
             name="usernameText"
             value={this.state.usernameText}
           />
-          <input
-            type="password"
+          <Form.Input fluid
+            type='password'
             placeholder="Password"
             onChange={this.handleTextChange}
             name="passwordText"
             value={this.state.passwordText}
           />
-        <input type="submit" value="Log In"/>
-        </form>
+          <Form.Button content='Log In' />
+        </Form>
       </div>
     )
   }

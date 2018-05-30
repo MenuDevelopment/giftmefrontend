@@ -1,4 +1,5 @@
 import React from 'react'
+import {Card, Form} from 'semantic-ui-react'
 
 class SignUpForm extends React.Component {
   state = {
@@ -27,6 +28,13 @@ class SignUpForm extends React.Component {
       localStorage.setItem('token', res.token)
       localStorage.setItem('username', res.username)
       localStorage.setItem('id', res.user_id)
+      this.props.history.push('/')
+      this.setState({
+        usernameText : '',
+        emailText : '',
+        paymentText : '',
+        passwordText : ''
+      })
       //this returns a token
       //anywhere that needs auth, include in header authroization: token
     })
@@ -45,37 +53,34 @@ class SignUpForm extends React.Component {
     return (
       <div className = "signUpForm">
         <h1> Sign Up</h1>
-        <form onSubmit = {this.signUpSubmitted}>
-          <input
-            type="text"
+        <Form onSubmit = {this.signUpSubmitted}>
+          <Form.Input
             placeholder="Username"
             onChange={this.handleTextChange}
             name="usernameText"
             value={this.state.usernameText}
           />
-          <input
-            type="text"
+          <Form.Input
             placeholder="Email Address"
             onChange={this.handleTextChange}
             name="emailText"
             value={this.state.emailText}
           />
-          <input
+          <Form.Input
             type="password"
             placeholder="Password"
             onChange={this.handleTextChange}
             name="passwordText"
             value={this.state.passwordText}
           />
-          <input
-            type="text"
+          <Form.Input
             placeholder="Payment Info"
             onChange={this.handleTextChange}
             name="paymentText"
             value={this.state.paymentText}
           />
-          <input type="submit" />
-        </form>
+          <Form.Button content='Submit' />
+        </Form>
 
       </div>
     )
