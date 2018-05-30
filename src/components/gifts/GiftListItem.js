@@ -1,13 +1,13 @@
 import React from 'react'
 import PledgeListItem from '../pledges/PledgeListItem'
-import { Button, Card, List} from 'semantic-ui-react'
+import {Card, List} from 'semantic-ui-react'
 
 const GiftListItem = (props) => {
 
   const pledgeLister = (pledges) => {
     if (pledges) {
       return pledges.map((pledge) => {
-        return <PledgeListItem username = {pledge.user.name} amount = {pledge.amount} />
+        return <PledgeListItem username = {pledge.user.name} amount = {pledge.amount} id = {pledge.user.id} />
       })
     } else {
       return null

@@ -1,6 +1,6 @@
 import React from 'react'
 import GiftListItem from './gifts/GiftListItem'
-import { Progress, Divider, Segment } from 'semantic-ui-react'
+import { Progress, Divider} from 'semantic-ui-react'
 import GiftFullView from './gifts/GiftFullView'
 
 class Home extends React.Component {
@@ -35,6 +35,29 @@ class Home extends React.Component {
     })
   }
 
+  pledgeADollar = (gift) => {
+    let match = this.state.gifts.find((query)=> {
+      return query === gift
+    })
+    console.log(match);
+    fetch('http://localhost:3000/api/v1/pledges/', {
+      method: "POST",
+      headers: {
+        Authroization: localStorage.token,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: localStorage.id,
+        gift_id: match.id,
+        amount: 1
+      })
+    })
+    .then(res=>res.json)
+    .then(res=>{
+      console.log(res);
+    })
+  }
+
   progressBar = (price, pledges) => {
     if (pledges.length > 0){
       const totalPledges = pledges.reduce( (acc, current) => {
@@ -53,7 +76,6 @@ class Home extends React.Component {
   }
 
   render () {
-    console.log(this.state);
     const giftComps = this.state.gifts.map((gift)=> {
       return (
         <div>
@@ -70,7 +92,7 @@ class Home extends React.Component {
     })
     return (
       <div className = "GiftList">
-        {this.state.currentGift.item ? <GiftFullView gift = {this.state.currentGift} progressBar = {this.progressBar} /> : null}
+        {this.state.currentGift.item ? <GiftFullView gift = {this.state.currentGift} progressBar = {this.progressBar} pledgeADollar= {this.pledgeADollar} />  : null}
         {this.state.currentGift.item ? <Divider /> : null}
         {localStorage.token ? giftComps : null}
       </div>
