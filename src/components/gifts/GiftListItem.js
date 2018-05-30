@@ -1,7 +1,6 @@
 import React from 'react'
 import PledgeListItem from '../pledges/PledgeListItem'
-import { Line } from 'rc-progress'
-import { Button, Card } from 'semantic-ui-react'
+import { Button, Card, Progress} from 'semantic-ui-react'
 
 const GiftListItem = (props) => {
 
@@ -25,7 +24,7 @@ const GiftListItem = (props) => {
       return (
         <div>
           <p>Total raised: {totalPledges}</p>
-          <Line percent={percentRaised} strokeWidth="4" strokeColor="red" trailColor = "blue" />
+          <Progress percent={percentRaised} indicating progress />
        </div> )
       } else {
         return null
