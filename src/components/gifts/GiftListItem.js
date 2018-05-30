@@ -24,7 +24,7 @@ const GiftListItem = (props) => {
       return (
         <div>
           <p>Total raised: {totalPledges}</p>
-          <Progress percent={percentRaised} indicating progress />
+          <Progress percent={percentRaised} indicating progress="percent"/>
        </div> )
       } else {
         return null
@@ -36,9 +36,9 @@ const GiftListItem = (props) => {
       <Card>
         <h3> {props.name} </h3>
         <h4> Goal: {props.price} </h4>
-        <Button content ="sup yall" />
-        <h4> {progressBar(props.price, props.pledges)} </h4>
+        {progressBar(props.price, props.pledges)}
         <div>
+          <h4> Contributors: </h4>
           {pledgeLister(props.pledges)}
         </div>
       </Card>
