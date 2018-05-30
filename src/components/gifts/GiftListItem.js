@@ -14,6 +14,10 @@ const GiftListItem = (props) => {
     }
   }
 
+  const thisGiftClicked = () => {
+    return props.giftClicked(props.name)
+  }
+
   const progressBar = (price, pledges) => {
     if (pledges.length > 0){
       const totalPledges = pledges.reduce( (acc, current) => {
@@ -32,8 +36,8 @@ const GiftListItem = (props) => {
   }
 
   return (
-    <div className = "GiftListItem" >
-      <Card>
+    <div className = "GiftListItem" name= {props.name} onClick = {thisGiftClicked} >
+      <Card >
         <h3> {props.name} </h3>
         <h4> Goal: {props.price} </h4>
         {progressBar(props.price, props.pledges)}

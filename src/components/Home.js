@@ -1,10 +1,12 @@
 import React from 'react'
 import GiftListItem from './gifts/GiftListItem'
+import GiftFullView from './gifts/GiftFullView'
 
 class Home extends React.Component {
 
   state = {
-    gifts: []
+    gifts: [],
+    currentGift : {},
   }
 
   componentDidMount () {
@@ -23,6 +25,15 @@ class Home extends React.Component {
     }
   }
 
+  giftClicked = (name) => {
+    let match = this.state.gifts.find( (gift) => {
+      return gift.item === name
+    })
+    this.setState({
+      currentGift: match
+    })
+  }
+
   render () {
     const giftComps = this.state.gifts.map((gift)=> {
       return (
@@ -30,11 +41,14 @@ class Home extends React.Component {
         name = {gift.item}
         pledges = {gift.pledges}
         price = {gift.price}
+        giftClicked = {this.giftClicked}
          />
      )
     })
     return (
       <div className = "GiftList">
+        {this.state.currentGift.item ? <p>hi</p> : null }
+        <GiftFullView />
         {giftComps}
       </div>
     )
