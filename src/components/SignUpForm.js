@@ -10,7 +10,7 @@ class SignUpForm extends React.Component {
 
   signUpSubmitted =  (event) => {
     event.preventDefault()
-    fetch(`http://localhost:3001/api/v1/users/`,
+    fetch(`http://localhost:3000/api/v1/users/`,
     {
       headers: {'Content-Type': 'application/json'},
       method: "POST",

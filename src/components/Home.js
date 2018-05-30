@@ -9,7 +9,7 @@ class Home extends React.Component {
 
   componentDidMount () {
     if (localStorage.getItem("token")){
-      fetch('http://localhost:3001/api/v1/gifts/',{
+      fetch('http://localhost:3000/api/v1/gifts/',{
         headers: {
           authorization: localStorage.token
         }

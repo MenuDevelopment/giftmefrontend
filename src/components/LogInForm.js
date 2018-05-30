@@ -8,7 +8,7 @@ class LogInForm extends React.Component {
 
   logInSubmitted =  (event) => {
     event.preventDefault()
-    fetch(`http://localhost:3001/api/v1/sessions/`,
+    fetch(`http://localhost:3000/api/v1/sessions/`,
     {
       headers: {'Content-Type': 'application/json'},
       method: "POST",
