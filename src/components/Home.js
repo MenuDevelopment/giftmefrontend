@@ -77,6 +77,7 @@ class Home extends React.Component {
 
   render () {
     const giftComps = this.state.gifts.map((gift)=> {
+      let index = this.state.gifts.indexOf(gift)
       return (
         <div>
           <GiftListItem
