@@ -25,6 +25,7 @@ class Home extends React.Component {
   }
 
   render () {
+    console.log(this.state);
     const giftComps = this.state.gifts.map((gift)=> {
       return (
         <div>
@@ -39,7 +40,7 @@ class Home extends React.Component {
     })
     return (
       <div className = "GiftList">
-        {giftComps}
+        {localStorage.token ? giftComps : null}
       </div>
     )
   }

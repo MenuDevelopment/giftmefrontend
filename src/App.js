@@ -7,10 +7,16 @@ import SignUpForm from './components/SignUpForm'
 import LogInForm from './components/LogInForm'
 
 class App extends Component {
+  state = {
+    count: 0
+  }
 
 
   logOutClicked = (event) => {
     localStorage.clear()
+    this.setState({
+      count: this.state.count + 1
+    })
   }
 
   render() {
