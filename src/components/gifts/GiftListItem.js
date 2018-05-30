@@ -36,15 +36,14 @@ const GiftListItem = (props) => {
   }
 
   return (
-    <div className = "GiftListItem" name= {props.name} onClick = {thisGiftClicked} >
-      <Card >
-        <h3> {props.name} </h3>
-        <h4> Goal: {props.price} </h4>
-        {progressBar(props.price, props.pledges)}
-        <div>
-          <h4> Contributors: </h4>
+    <div className = "GiftListItem" >
+      <Card>
+        <Card.Header> {props.name} </Card.Header>
+        <Card.Meta> Goal: {props.price} </Card.Meta>
+        <h4> {progressBar(props.price, props.pledges)} </h4>
+        <Card.Description>
           {pledgeLister(props.pledges)}
-        </div>
+        </Card.Description>
       </Card>
 
     </div>
