@@ -1,4 +1,5 @@
 import React from 'react'
+import {Card, Form} from 'semantic-ui-react'
 
 class LogInForm extends React.Component {
   state = {
@@ -36,7 +37,7 @@ class LogInForm extends React.Component {
   render () {
     return (
       <div>
-        <form onSubmit = {this.logInSubmitted}>
+        <Form onSubmit = {this.logInSubmitted}>
           <input
             type="text"
             placeholder="Username"
