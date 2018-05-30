@@ -39,11 +39,12 @@ class Home extends React.Component {
     let match = this.state.gifts.find((query)=> {
       return query === gift
     })
+    let index = this.state.gifts.indexOf(match)
     console.log(match);
     fetch('http://localhost:3000/api/v1/pledges/', {
       method: "POST",
       headers: {
-        Authroization: localStorage.token,
+        Authorization: localStorage.token,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
@@ -54,7 +55,20 @@ class Home extends React.Component {
     })
     .then(res=>res.json)
     .then(res=>{
-      this.setState(this.state)
+      fetch(`http://localhost:3000/api/v1/gifts/${match.id}`,{
+        headers: {
+          Authorization: localStorage.token
+        }
+      })
+      .then(res => res.json())
+      .then( res => {
+        let copyGifts = [...this.state.gifts]
+        copyGifts[index] = res
+        this.setState ({
+          currentGift: res,
+          gifts: copyGifts,
+        })
+      })
     })
   }
 
@@ -76,6 +90,7 @@ class Home extends React.Component {
   }
 
   render () {
+    console.log("rerendering");
     const giftComps = this.state.gifts.map((gift)=> {
       let index = this.state.gifts.indexOf(gift)
       return (
@@ -93,8 +108,8 @@ class Home extends React.Component {
     })
     return (
       <div className = "GiftList">
-        {this.state.currentGift.item ? <GiftFullView gift = {this.state.currentGift} progressBar = {this.progressBar} pledgeADollar= {this.pledgeADollar} />  : null}
-        {this.state.currentGift.item ? <Divider /> : null}
+        {this.state.currentGift.item && localStorage.token  ? <GiftFullView gift = {this.state.currentGift} progressBar = {this.progressBar} pledgeADollar= {this.pledgeADollar} />  : null}
+        {this.state.currentGift.item && localStorage.token ? <Divider /> : null}
         {localStorage.token ? giftComps : null}
       </div>
     )
