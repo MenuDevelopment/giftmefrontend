@@ -1,6 +1,6 @@
 import React from 'react'
 import PledgeListItem from '../pledges/PledgeListItem'
-import { Button, Card, Progress} from 'semantic-ui-react'
+import { Button, Card, Progress, List} from 'semantic-ui-react'
 
 const GiftListItem = (props) => {
 
@@ -36,17 +36,14 @@ const GiftListItem = (props) => {
   }
 
   return (
-    <div className = "GiftListItem" >
-      <Card>
-        <Card.Header> {props.name} </Card.Header>
-        <Card.Meta> Goal: {props.price} </Card.Meta>
-        <h4> {progressBar(props.price, props.pledges)} </h4>
-        <Card.Description>
-          {pledgeLister(props.pledges)}
-        </Card.Description>
-      </Card>
-
-    </div>
+    <Card>
+      <Card.Header> {props.name} </Card.Header>
+      <Card.Meta> Goal: {props.price} </Card.Meta>
+      <h4> {progressBar(props.price, props.pledges)} </h4>
+      <Card.Description>
+        {pledgeLister(props.pledges)}
+      </Card.Description>
+    </Card>
   )
 
 }

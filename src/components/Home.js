@@ -1,6 +1,6 @@
 import React from 'react'
 import GiftListItem from './gifts/GiftListItem'
-import GiftFullView from './gifts/GiftFullView'
+import { Divider, Segment } from 'semantic-ui-react'
 
 class Home extends React.Component {
 
@@ -35,21 +35,22 @@ class Home extends React.Component {
   }
 
   render () {
+    console.log(this.state);
     const giftComps = this.state.gifts.map((gift)=> {
       return (
-        <GiftListItem
-        name = {gift.item}
-        pledges = {gift.pledges}
-        price = {gift.price}
-        giftClicked = {this.giftClicked}
-         />
+        <div>
+          <GiftListItem
+          name = {gift.item}
+          pledges = {gift.pledges}
+          price = {gift.price}
+           />
+         <Divider hidden />
+       </div>
      )
     })
     return (
       <div className = "GiftList">
-        {this.state.currentGift.item ? <p>hi</p> : null }
-        <GiftFullView />
-        {giftComps}
+        {localStorage.token ? giftComps : null}
       </div>
     )
   }

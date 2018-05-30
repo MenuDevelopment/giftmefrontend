@@ -1,33 +1,34 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { Header, Segment, Button } from 'semantic-ui-react'
 
 const NavBar = (props) => {
   const SignOutButton = () => {
     return (
-      <button onClick = {props.logOutClicked} >Log Out</button>
+      <Button inverted onClick = {props.logOutClicked}>Log Out</Button>
     )
   }
   const LogInAndSignUp = () => {
     return (
       <div>
         <Link to="/login">
-          <button>Log In</button>
+          <Button inverted>Log In</Button>
         </Link>
         <Link to="/signup">
-          <button>Sign Up</button>
+          <Button inverted>Sign Up</Button>
         </Link>
     </div>
     )
   }
   return (
-    <div className = "NavBar">
+    <Segment inverted>
       <Link to="/" style={{ textDecoration: 'none' }}>
-        <h1>Gift.Me: Sending awesome gifts, together.</h1>
+        <Header as='h1' inverted color='white' textAlign='center'>Gift.Me: Sending awesome gifts, together.</Header>
       </Link>
       <div className = "ButtonHolder" >
         {localStorage.getItem("token") ? SignOutButton() : LogInAndSignUp() }
       </div>
-    </div>
+    </Segment>
   )
 
 }
